@@ -1,16 +1,25 @@
-let numeroSecreto = Math.floor(Math.random() * 10) + 1;
-let intentos = 0;
+let secretNumber = Math.floor(Math.random() * 10) + 1;
+let attempts = 0;
 
-console.log("Adivina el número del 1 al 10");
+console.log("Guess the number from 1 to 10");
 
 while (true) {
 
-    let numeroUsuario = prompt("Enter a number:");
+    let userNumber = prompt("Enter a number:");
 
-    if (numeroUsuario === null) {
-        console.log("game cancelled");
+    if (userNumber === null) {
+        console.log("Game cancelled");
         break;
     }
 
+    attempts++;
 
+    if (Number(userNumber) === secretNumber) {
+        console.log("You won in " + attempts + " attempts");
+        break;
+    } else if (userNumber < secretNumber) {
+        console.log("Higher");
+    } else {
+        console.log("Lower");
+    }
 }
